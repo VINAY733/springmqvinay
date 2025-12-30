@@ -102,6 +102,8 @@ kubectl delete -f spring-rabbitmq-sidecar.yaml
 
 ## 🐰 RabbitMQ Management UI
 
+### Option 1: Using NodePort (current setup)
+
 Access RabbitMQ UI:
 
 ```
@@ -113,8 +115,25 @@ http://localhost:31672/
 * Username: `guest`
 * Password: `guest`
 
-> If running on a remote cluster, use `kubectl port-forward` instead of NodePort.
-> kubectl port-forward svc/spring-rabbit-sidecar 15672:15672
+---
+
+### Option 2: Using kubectl port-forward (recommended, no NodePort)
+
+If you **do not want to expose NodePort**, forward traffic locally:
+
+```bash
+kubectl port-forward svc/spring-rabbit-sidecar 15672:15672
+```
+
+Then access:
+
+```
+http://localhost:15672
+```
+
+> ✔ Recommended for local development
+> ✔ No Kubernetes service exposure
+> ✔ Stops automatically when terminal closes
 
 ---
 
