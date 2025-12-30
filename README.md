@@ -2,7 +2,7 @@ mvn clean install
 
 mvn clean install -DskipTests
 
-docker build -t spring-kafka-consumer:latest .
+docker build -t spring-rabbit-consumer:latest .
 
 docker build -f .\DockerfileSimple -t spring-rabbit-consumer:latest .
 docker build -f .\DockerfileComplex -t spring-rabbit-consumer:latest .
