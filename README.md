@@ -114,6 +114,7 @@ http://localhost:31672/
 * Password: `guest`
 
 > If running on a remote cluster, use `kubectl port-forward` instead of NodePort.
+> kubectl port-forward svc/spring-rabbit-sidecar 15672:15672
 
 ---
 
