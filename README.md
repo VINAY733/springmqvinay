@@ -85,14 +85,14 @@ kubectl delete -f spring-rabbitmq-sidecar.yaml
 ### Option 1 (Stable)
 
 ```xml
-<spring-boot.version>3.4.5</spring-boot.version>
+<version>3.4.5</version>
 <spring-cloud.version>2024.0.3</spring-cloud.version>
 ```
 
 ### Option 2 (Latest)
 
 ```xml
-<spring-boot.version>3.5.9</spring-boot.version>
+<version>3.5.9</version>
 <spring-cloud.version>2025.0.1</spring-cloud.version>
 ```
 
