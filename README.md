@@ -24,3 +24,12 @@ springboot version and spring cloud version
 <version>3.5.9</version>
 <spring-cloud.version>2025.0.1</spring-cloud.version>
 ---
+rabbit UI 
+
+http://localhost:31672/
+
+sample message:
+{
+"id": 1,
+"name": "Vinay"
+}
