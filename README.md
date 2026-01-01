@@ -7,8 +7,10 @@ This repository demonstrates **Spring Boot message consumers** using:
 
 The goal is to clearly separate:
 
-* **RabbitMQ → Kubernetes (sidecar / multi‑pod)**
+* **RabbitMQ → Kubernetes (sidecar / multi-pod)**
 * **Kafka → Local Docker Compose**
+
+> ⚠️ Enable the required properties in `application.properties` based on what you are testing (RabbitMQ or Kafka).
 
 ---
 
@@ -107,7 +109,7 @@ Credentials:
 
 ---
 
-### Option 2: Port‑forward (recommended)
+### Option 2: Port-forward (recommended)
 
 ```bash
 kubectl port-forward svc/spring-cloud-sidecar 15672:15672
@@ -137,12 +139,16 @@ http://localhost:15672
 
 ## 🧪 RabbitMQ – Two Separate Pods (No Sidecar)
 
+Use this approach when you want RabbitMQ and the Spring Boot app in **separate Pods**.
+
 ### Deploy
 
 ```bash
 kubectl apply -f rabbitmq.yaml
 kubectl apply -f spring-app.yaml
 ```
+
+> 💡 To test RabbitMQ **from IDE**: apply only `rabbitmq.yaml` and start the Spring Boot service locally.
 
 ### View logs
 
@@ -162,6 +168,8 @@ kubectl delete -f spring-app.yaml
 ## 🐘 Kafka – Local Setup (Docker Compose Only)
 
 ⚠️ Kafka is **NOT** deployed as a sidecar. It runs **locally using Docker Compose**.
+
+> 💡 Start the **Kafka consumer service from your IDE**.
 
 ---
 
