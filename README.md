@@ -50,13 +50,15 @@ mvn clean install -DskipTests
 docker build -t spring-cloud-consumer:latest .
 ```
 
-### Custom Dockerfiles
+## Custom Dockerfiles
+
+### build with the tag thats specified in deployment.yaml
 
 ```bash
 docker build -f .\\DockerfileSimple -t spring-cloud-consumer:latest .
 docker build -f .\\DockerfileComplex -t spring-cloud-consumer:latest .
 
-# Alternative tags
+# Alternative tags 
 docker build -f .\\DockerfileSimple -t spring-rabbit-consumer:latest .
 docker build -f .\\DockerfileComplex -t spring-rabbit-consumer:latest .
 ```
