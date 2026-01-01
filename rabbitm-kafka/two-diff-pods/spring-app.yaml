@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-rabbit-consumer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-rabbit-consumer
+  template:
+    metadata:
+      labels:
+        app: spring-rabbit-consumer
+    spec:
+      containers:
+        - name: spring-app
+          image: spring-rabbit-consumer:latest
+          imagePullPolicy: Never   # IMPORTANT for local Docker
+          env:
+            - name: SPRING_RABBITMQ_HOST
+              value: rabbitmq
+            - name: SPRING_RABBITMQ_PORT
+              value: "5672"
+            - name: SPRING_RABBITMQ_USERNAME
+              value: guest
+            - name: SPRING_RABBITMQ_PASSWORD
+              value: guest
+          ports:
+            - containerPort: 8080
