@@ -232,6 +232,36 @@ Each line = **one Kafka message**
 
 ---
 
+### Step 7: Consume message from output topic
+
+#### output topic will be auto create only when some message is being sent
+#### input topic will be auto create during start up
+
+```bash
+docker exec -it kafka bash
+```
+#### to consume from output topic using bash
+
+
+```bash
+kafka-console-consumer.sh \
+--bootstrap-server localhost:9092 \
+--topic outputemployeetopic \
+--from-beginning
+```
+
+#### to delete topic
+
+```bash
+kafka-topics.sh \
+  --bootstrap-server localhost:9092 \
+  --delete \
+  --topic outputemployeetopic  
+```
+
+
+---
+
 ## 📦 Spring Versions
 
 ### Option 1 (Stable – Recommended)
